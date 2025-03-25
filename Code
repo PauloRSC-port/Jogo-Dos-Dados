@@ -1,0 +1,61 @@
+##Importar bibliotecas
+import random
+from time import sleep
+
+##Definir variáveis
+resultado = dict()
+resp = ' '
+print('JOGO DO DADO')
+print('='*40)
+
+##Definir os jogadores
+resultado['Player 1'] = str(input('Digite o nome do Player 1: '))
+resultado['Player 2'] = str(input('Digite o nome do Player 2: '))
+print('='*40)
+    
+resultado['rdado1'] = random.randint(1, 6)
+resultado['rdado2'] = random.randint(1, 6)
+##Definir as jogadas
+for c in range(0, 1):
+    print(f'Player {resultado["Player 1"]}')
+    resp = str(input('Deseja jogar o Dado? [S/N] '))
+    if resp in 'Nn':
+        print('FIM')
+        break
+    print('JOGANDO O DADO N¹...')
+    sleep(3)
+    print(f'O resultado do dado lançado foi {resultado["rdado1"]}')
+    sleep(2)
+    for x in range(0, 1):
+        print('='*40)
+        print(f'Player {resultado["Player 2"]}')
+        resp = str(input('Deseja jogar o Dado? [S/N] '))
+        if resp in 'Nn':
+            print('FIM')
+            break
+        print('JOGANDO O DADO N²...')
+        sleep(3)
+        print(f'O resultado do dado lançado foi {resultado["rdado2"]}')
+        sleep(2)
+
+##Definindo vencedor
+print('='*40)
+print('O RESULTADO FOI: ')
+for r in resultado.keys():
+    if resultado["rdado1"] > resultado["rdado2"]:
+        print(f'O resultado do dado do {resultado["Player 1"]} foi {resultado["rdado1"]}')
+        print(f'O resultado do dado do {resultado["Player 2"]} foi {resultado["rdado2"]}')
+        print(f'O {resultado["Player 1"]} VENCEU!')
+        break
+    elif resultado["rdado1"] == resultado["rdado2"]:
+        print(f'O resultado do dado do {resultado["Player 1"]} foi {resultado["rdado1"]}')
+        print(f'O resultado do dado do {resultado["Player 2"]} foi {resultado["rdado2"]}')        
+        print(f'O {resultado["Player 1"]} e o {resultado["Player 2"]} EMPATARAM')
+        break
+    elif resultado["rdado1"] < resultado["rdado2"]:
+        print(f'O resultado do dado do {resultado["Player 1"]} foi {resultado["rdado1"]}')
+        print(f'O resultado do dado do {resultado["Player 2"]} foi {resultado["rdado2"]}')        
+        print(f'O {resultado["Player 2"]} VENCEU!')
+        break
+
+
